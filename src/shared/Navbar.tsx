@@ -8,20 +8,19 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { CardMedia } from '@mui/material';
-import logo from '../../public/assets/logo.svg'
 import Image from 'next/image';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import SearchIcon from '@mui/icons-material/Search';
+import logo from '../../public/assets/logo.svg';
 
 const pages = ['Home', 'About', 'Services', 'Blogs', 'Contact'];
+
 const Navbar = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -30,12 +29,13 @@ const Navbar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-    return (
-        <AppBar position="fixed" sx={{backgroundColor: 'white'}}>
+
+  return (
+    <AppBar position="fixed" sx={{ backgroundColor: 'white' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Image src={logo} alt='logo'/>
+          <Image src={logo} alt='logo' width={50} height={50} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -88,9 +88,8 @@ const Navbar = () => {
               color: 'black',
               textDecoration: 'none',
             }}
-          >
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', } }}>
+          />
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -105,16 +104,16 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="icon">
               <IconButton sx={{ p: '2px' }}>
-              <WorkOutlineIcon sx={{mr: '16px'}}></WorkOutlineIcon>
-              <SearchIcon sx={{mr: '16px'}}></SearchIcon>
-              <Button variant="outlined" sx={{color: 'red', borderColor: 'red'}}>Appointment</Button>
+                <WorkOutlineIcon sx={{ mr: '16px' }} />
+                <SearchIcon sx={{ mr: '16px' }} />
               </IconButton>
             </Tooltip>
+                <Button variant="outlined" sx={{ color: 'red', borderColor: 'red' }}>Appointment</Button>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-    );
+  );
 };
 
 export default Navbar;
