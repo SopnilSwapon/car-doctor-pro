@@ -1,13 +1,12 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
+import Banner from './Banner';
 
 const HomePage = () => {
     return (
-        <div>
-            <Typography component='p' variant='body1'>
-                This is homepage
-            </Typography>
-        </div>
+        <Box sx={{ width: '100%'}}>
+            <Banner></Banner>
+        </Box>
     );
 };
 
