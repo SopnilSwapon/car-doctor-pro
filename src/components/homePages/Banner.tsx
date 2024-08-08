@@ -13,42 +13,42 @@ import { Typography } from '@mui/material';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const bannerInfo = [
-    {
-      title: 'Affordable Price For Car Servicing',
-      description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
-    },
-    {
-      title: 'Affordable Price For Car Servicing',
-      description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
-    },
-    {
-      title: 'Affordable Price For Car Servicing',
-      description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
-    },
-    {
-      title: 'Affordable Price For Car Servicing',
-      description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
-    },
-  ];
+  {
+    title: 'Affordable Price For Car Servicing',
+    description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
+  },
+  {
+    title: 'Affordable Price For Car Servicing',
+    description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
+  },
+  {
+    title: 'Affordable Price For Car Servicing',
+    description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
+  },
+  {
+    title: 'Affordable Price For Car Servicing',
+    description: 'There are many variations of passages of  available, but the majority have suffered alteration in some form',
+  },
+];
 
 const Banner = () => {
-    const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const maxSteps = bannerInfo.length;
-  
-    const handleNext = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-  
-    const handleBack = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-  
-    const handleStepChange = (step: number) => {
-      setActiveStep(step);
-    };
-    return (
-        <Box sx={{ flexGrow: 1 , width: '100%'}}>
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = bannerInfo.length;
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStepChange = (step: number) => {
+    setActiveStep(step);
+  };
+  return (
+    <Box sx={{ flexGrow: 1, width: '100%' }}>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -64,21 +64,26 @@ const Banner = () => {
                   display: 'block',
                   maxWidth: "1500px",
                   overflow: 'hidden',
-                  width: '100%',
+                  width: '97%',
                   mt: '60px',
-                  backgroundImage: `url(assets/images/banner/${index + 1}.jpg)`,
+                  pl: '40px',
+                  backgroundImage: `linear-gradient(90.00deg, rgb(21, 21, 21),rgba(21, 21, 21, 0) 70%), url(assets/images/banner/${index + 1}.jpg)`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
               >
-                <Typography variant='h2' sx={{color: 'white', fontSize: {sm: '1.5rem', xs: '1rem', md: '2rem' , lg: '3rem'}, pt: '200px', width: {xs: '100%', sm: '100%', md: '50%', lg: '40%'}, pl: '10px'}}>
+                <Typography variant='h2' sx={{ color: 'white', fontSize: { sm: '1.5rem', xs: '2rem', md: '2rem', lg: '3rem' }, pt: '200px', width: { xs: '100%', sm: '100%', md: '50%', lg: '40%' }}}>
                   {step.title}
                 </Typography>
-                <Typography variant='body1' sx={{color: 'white', width: {lg: '40%', md: '40%'}}}>
+                <Typography variant='body1' sx={{ color: 'white', width: { lg: '40%', md: '40%' }, fontSize: '18px', mb: '10px', }}>
                   {step.description}
                 </Typography>
-                </Box>
+                <Button sx={{backgroundColor: 'red', mr: '10px', fontWeight: 600,}} variant="contained">Discover More</Button>
+                <Button sx={{fontWeight: 600, mr: '10px', borderColor: 'white', color: 'white'}} variant="outlined">
+                  Latest Project
+                </Button>
+              </Box>
             ) : null}
           </div>
         ))}
@@ -113,7 +118,7 @@ const Banner = () => {
         }
       />
     </Box>
-    );
+  );
 };
 
 export default Banner;
