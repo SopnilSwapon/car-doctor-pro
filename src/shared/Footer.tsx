@@ -4,74 +4,73 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
+import GoogleIcon from '@mui/icons-material/Google';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import { LinkedIn } from '@mui/icons-material';
+import Image from 'next/image';
+import logo from '../../public/assets/logo.svg'
 
 const Footer = () => {
     return (
-        <Box>
-        <Container>
+        <Box
+        sx={{backgroundColor: 'black', mx: 'auto', color: 'white', p: '10px', textAlign: 'center', pt:'40px'}}>
+        <Container maxWidth='xl'>
             <Grid container spacing={4}>
-            <Grid item>
-                <Typography variant='h5'>
-                    Bangladesh
+            <Grid item sm={6} md={3} lg={3}>
+                <Image src={logo} alt='logo'/>
+                <Typography variant='body1'>
+                    Eadnin Diaz is a Software & technologies engineering, A life coach who is also serial.
                 </Typography>
+                <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', mt: '4px'}}>
+                <GoogleIcon/>
+                <FacebookIcon/>
+                 <TwitterIcon/>
+                 <LinkedIn/>
+                </Box>
+            </Grid>
+            <Grid item sm={6} md={3} lg={3} sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+              <Typography variant='h6'>
+              About
+              </Typography>
+              <Typography variant='body1'>
+                Home
+              </Typography>
+              <Typography variant='body1'>
+                Service
+              </Typography>
+              <Typography variant='body1' >
+                Contact
+              </Typography>
+            </Grid>
+            <Grid item sm={6} md={3} lg={3} sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+              <Typography variant='h6'>
+               Company
+              </Typography>
+              <Typography variant='body1'>
+                Why car doctor?
+              </Typography>
+              <Typography variant='body1'>
+                About
+              </Typography>
+            </Grid>
+            <Grid item sm={6} md={3} lg={3} sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+              <Typography variant='h6'>
+               Support
+              </Typography>
+              <Typography variant='body1'>
+                Support center
+              </Typography>
+              <Typography variant='body1'>
+                Feedback
+              </Typography>
+              <Typography variant='body1'>
+                Accessibility
+              </Typography>
             </Grid>
             </Grid>
         </Container>
     </Box>
-
-    //     <Box
-    //   sx={{
-    //     backgroundColor: 'primary.main',
-    //     color: 'white',
-    //     padding: '16px 0',
-    //     mt: 'auto',
-    //   }}
-    // >
-    //   <Container maxWidth="xl">
-    //     <Grid container spacing={4}>
-    //       <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-    //         <Typography variant="h6" gutterBottom>
-    //           About Us
-    //         </Typography>
-    //         <Typography variant="body2">
-    //           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    //         </Typography>
-    //       </Grid>
-    //       <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-    //         <Typography variant="h6" gutterBottom>
-    //           Services
-    //         </Typography>
-    //         <Typography variant="body2">
-    //           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    //         </Typography>
-    //       </Grid>
-    //       <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-    //         <Typography variant="h6" gutterBottom>
-    //           Contact Us
-    //         </Typography>
-    //         <Typography variant="body2">
-    //           Email: example@example.com
-    //         </Typography>
-    //         <Typography variant="body2">
-    //           Phone: +123 456 7890
-    //         </Typography>
-    //       </Grid>
-    //       {/* Add more Grid items as needed */}
-    //     </Grid>
-    //     <Box sx={{ textAlign: 'center', mt: 4 }}>
-    //       <Typography variant="body2">
-    //         © {new Date().getFullYear()} Your Company. All rights reserved.
-    //       </Typography>
-    //       <Link href="#" color="inherit" sx={{ ml: 1 }}>
-    //         Privacy Policy
-    //       </Link>
-    //       <Link href="#" color="inherit" sx={{ ml: 1 }}>
-    //         Terms of Service
-    //       </Link>
-    //     </Box>
-    //   </Container>
-    // </Box>
-    
     );
 };
 
