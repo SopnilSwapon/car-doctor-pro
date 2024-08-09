@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/shared/Navbar";
 import Footer from "@/shared/Footer";
+import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,14 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ReactQueryClientProvider>
     <html lang="en">
       <body className={inter.className}>
-        <Navbar></Navbar>
+       <Navbar></Navbar>
         <div>
         {children}
         </div>
         <Footer></Footer>
         </body>
     </html>
+    </ReactQueryClientProvider>
   );
 }
