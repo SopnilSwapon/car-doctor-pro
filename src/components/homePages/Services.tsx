@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import useServicesInfo from '../useServicesInfo';
 import { text } from 'stream/consumers';
 
@@ -47,9 +47,13 @@ const Services = () => {
                             <Typography variant="body2" color="text.secondary">
                              {info.description}
                             </Typography>
+                            <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                             <Typography variant='h6' color="red">
                                 Price: {info.price}$
                             </Typography>
+                            <Button size='small' sx={{backgroundColor: 'red', fontWeight: 600,}} variant="contained">Buy</Button>
+
+                            </Box>
                         </CardContent>
                         <CardActions>
                         </CardActions>
@@ -58,6 +62,10 @@ const Services = () => {
                     )
                    }
                 </Grid>
+                <Box sx={{display: 'flex',justifyContent: 'center', py: '16px'}}>
+                <Button variant="outlined" sx={{ color: 'red', borderColor: 'red', fontWeight: 600}}>More Services</Button>
+                </Box>
+
             </Box>
         </Box>
     );
