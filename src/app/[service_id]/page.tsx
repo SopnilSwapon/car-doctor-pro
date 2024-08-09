@@ -21,7 +21,7 @@ const DetailsPage = ({ params }: { params: ParamsType }) => {
                 </Box>
                 <Box>
                     <Typography variant='body1'>
-                        <Typography sx={{ fontWeight: 600 }}>Description : </Typography>
+                        <span style={{fontWeight: 'bold'}}>Description :</span>
                         {singleParts?.description}
                     </Typography>
                     {

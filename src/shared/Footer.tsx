@@ -52,6 +52,9 @@ const Footer = () => {
               <Typography variant='body1'>
                 About
               </Typography>
+              <Typography variant='body1'>
+                More
+              </Typography>
             </Grid>
             <Grid item sm={6} md={3} lg={3} sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               <Typography variant='h6'>
