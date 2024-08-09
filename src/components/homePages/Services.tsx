@@ -5,13 +5,12 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import useServicesInfo from '../useServicesInfo';
-import { text } from 'stream/consumers';
+import useServicesInfo from '../../hooks/useServicesInfo';
 
 const Services = () => {
-   const partsInfo = useServicesInfo();
+    const partsInfo = useServicesInfo();
 
-    
+
     console.log(partsInfo);
     return (
         <Box>
@@ -29,41 +28,44 @@ const Services = () => {
                 </Typography>
             </Box>
             <Box>
-                <Grid container spacing={4} sx={{mt: '6px'}}>
-                   {
-                    partsInfo?.map((info: any) => 
+                <Grid container spacing={4} sx={{ mt: '6px' }}>
+                    {
+                        partsInfo?.map((info: any) =>
 
-                        <Grid key={info.service_id} item xs={12} sm={6} md={4} lg={4}>
-                        <Card>
-                        <CardMedia
-                            sx={{ height: 220 }}
-                            image={info.img}
-                            title={info.title}
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {info.title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                             {info.description}
-                            </Typography>
-                            <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                            <Typography variant='h6' color="red">
-                                Price: {info.price}$
-                            </Typography>
-                            <Button size='small' sx={{backgroundColor: 'red', fontWeight: 600,}} variant="contained">Buy</Button>
-
-                            </Box>
-                        </CardContent>
-                        <CardActions>
-                        </CardActions>
-                    </Card>
-                        </Grid>
-                    )
-                   }
+                            <Grid key={info.service_id} item xs={12} sm={6} md={4} lg={4}>
+                                <Card>
+                                    <CardMedia
+                                        sx={{ height: 220 }}
+                                        image={info.img}
+                                        title={info.title}
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {info.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {info.description}
+                                        </Typography>
+                                        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                            <Typography variant='h6' color="red">
+                                                Price: {info.price}$
+                                            </Typography>
+                                         
+                                            <Button href={`${info.service_id}`} sx={{ fontWeight: 600, mr: '10px', borderColor: 'red', color: 'red' }} variant="outlined">
+                                                View Details
+                                            </Button>
+                                        </Box>
+                                        <Button size='small' sx={{ backgroundColor: 'red', fontWeight: 600, }} variant="contained">Buy</Button>
+                                    </CardContent>
+                                    <CardActions>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                        )
+                    }
                 </Grid>
-                <Box sx={{display: 'flex',justifyContent: 'center', py: '16px'}}>
-                <Button variant="outlined" sx={{ color: 'red', borderColor: 'red', fontWeight: 600}}>More Services</Button>
+                <Box sx={{ display: 'flex', justifyContent: 'center', py: '16px' }}>
+                    <Button variant="outlined" sx={{ color: 'red', borderColor: 'red', fontWeight: 600 }}>More Services</Button>
                 </Box>
 
             </Box>

@@ -82,6 +82,7 @@ const Banner = () => {
                 <Button sx={{fontWeight: 600, mr: '10px', borderColor: 'white', color: 'white'}} variant="outlined">
                   Latest Project
                 </Button>
+                
               </Box>
             ) : null}
           </div>
