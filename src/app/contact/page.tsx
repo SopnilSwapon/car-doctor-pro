@@ -4,13 +4,6 @@ import Image from 'next/image';
 import React from 'react';
 import contactLogo from '../../../public/assets/images/login/login.svg'
 import { useForm } from "react-hook-form"
-// import { useForm } from 'react-hook-form';
-
-
-// type Inputs = {
-//   example: string
-//   exampleRequired: string
-// }
 const ContactPage = () => {
     const {
         register,
@@ -26,7 +19,7 @@ const ContactPage = () => {
         <Box sx={{mt: "180px",  minHeight:'calc(100vh - 300px)'}} >
             
          <Box sx={{display: 'flex', flexDirection: {lg: 'row', md: 'row', sm: 'column', xs: 'column'}}}>
-         <Box sx={{width: '95%', mx:'auto'}}>
+         <Box sx={{width: '95%', display: 'flex', justifyContent: 'center'}}>
             
             <Image src={contactLogo} alt='contact logo'/>
          </Box>
