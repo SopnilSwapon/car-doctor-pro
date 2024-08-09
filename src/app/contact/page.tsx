@@ -1,32 +1,36 @@
-import { Box, Typography } from '@mui/material';
+'use client'
+import { Box, Button, TextField, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import contactLogo from '../../../public/assets/images/login/login.svg'
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
+// import { useForm } from 'react-hook-form';
 
-type Inputs = {
-  example: string
-  exampleRequired: string
-}
-const page = () => {
+
+// type Inputs = {
+//   example: string
+//   exampleRequired: string
+// }
+const ContactPage = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
-      } = useForm<Inputs>()
-      const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+      } = useForm();
+
+      const onSubmit = async (data:any) =>{
+        console.log(data)
+      } 
     
-      console.log(watch("example"))
     return (
         <Box sx={{mt: "180px",  minHeight:'calc(100vh - 300px)'}} >
             
-         <Box sx={{display: 'flex'}}>
-         <Box>
+         <Box sx={{display: 'flex', flexDirection: {lg: 'row', md: 'row', sm: 'column', xs: 'column'}}}>
+         <Box sx={{width: '95%', mx:'auto'}}>
             
             <Image src={contactLogo} alt='contact logo'/>
          </Box>
-         <Box>
+         <Box sx={{flexGrow: 1, width: '100%', px: '10px'}}>
             <Typography textAlign='center' variant='h3'>
              Please Contact Us.
             </Typography>
@@ -35,14 +39,16 @@ const page = () => {
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
+      {/* <input defaultValue="test" {...register("example")} /> */}
+        <TextField sx={{display: 'block', mt:'16px', width: {lg: '60%', md: '65%', sm:'100%', xs: '100%'}, mx: 'auto'}} fullWidth type='text' label="Type Your Name" {...register('name')} variant="outlined" />
+        <TextField sx={{display: 'block', width: {lg: '60%', md: '65%'}, mx: 'auto', my: '16px'}} fullWidth type='email' label="Type Your Email" {...register('email')} variant="outlined" />
+        <TextField sx={{display: 'block', width: {lg: '60%', md: '65%'}, mx: 'auto'}} fullWidth type='text' label="Your Message" multiline
+          rows={4}
+          {...register('message')} variant="outlined" />
       {/* errors will return when field validation fails  */}
       {errors.exampleRequired && <span>This field is required</span>}
 
-      <input type="submit" />
+      <Button type='submit' size='large' sx={{ backgroundColor: 'red', fontWeight: 600,  display: 'block', width: {lg: '60%', md: '65%'}, mx: 'auto', my: '16px'}} variant="contained">Submit</Button>
     </form>
          </Box>
          </Box>
@@ -50,4 +56,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default ContactPage;
