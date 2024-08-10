@@ -16,8 +16,30 @@ import Image from 'next/image';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import logo from '../../public/assets/logo.svg';
+import Link from 'next/link';
 
-const pages = ['Home', 'About', 'Services', 'Blogs', 'Contact'];
+const pages = [
+  {
+    title: 'Home',
+    path: '/'
+  },
+  {
+    title: 'About',
+    path: '/about'
+  },
+  {
+    title: 'Services',
+    path: '/services'
+  },
+  {
+    title: 'Blogs',
+    path: 'blogs'
+  },
+  {
+    title: 'Contact',
+    path: '/contact'
+  }
+];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -65,10 +87,10 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+              {pages.map((page, idx) => (
+                <Link href={page.path} key={idx} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -90,13 +112,14 @@ const Navbar = () => {
             }}
           />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
-            {pages.map((page) => (
+            {pages.map((page, idx) => (
               <Button
-                key={page}
+                key={idx}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', fontWeight: 600, display: 'block' }}
+                href={page.path}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>
@@ -108,7 +131,7 @@ const Navbar = () => {
                 <SearchIcon sx={{ mr: '16px' }} />
               </IconButton>
             </Tooltip>
-                <Button variant="outlined" sx={{ color: 'red', borderColor: 'red' }}>Appointment</Button>
+            <Button variant="outlined" sx={{ color: 'red', borderColor: 'red' }}>Appointment</Button>
           </Box>
         </Toolbar>
       </Container>
