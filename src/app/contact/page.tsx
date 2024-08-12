@@ -25,7 +25,7 @@ const ContactPage = () => {
          </Box>
          <Box sx={{flexGrow: 1, width: '100%', px: '10px'}}>
             <Typography textAlign='center' variant='h3'>
-             Please Contact Us.
+             Please Contact With Us.
             </Typography>
          <Typography textAlign='center' variant='body1'>
                 If you want to contact us please fill up the form.Also You can give feedback & share your opinion. If You need any long discussion please full free to contact us we will reach out as soon as possible.
